@@ -14,6 +14,8 @@ class TweetController {
     const data = request.only(["content"]);
     const tweet = await Tweet.create({ user_id: auth.user.id, ...data });
 
+    console.log(request.intercept.message);
+
     return tweet;
   }
 
