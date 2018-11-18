@@ -19,6 +19,13 @@ class TweetController {
     return tweet;
   }
 
+  async likes({ params }) {
+    let tweet = await Tweet.findOrFail(params.id);
+    tweet.likes += 1;
+    await tweet.save();
+    return tweet;
+  }
+
   async show({ params }) {
     const tweet = await Tweet.findOrFail(params.id);
     return tweet;

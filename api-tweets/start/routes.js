@@ -24,6 +24,7 @@ Route.group(() => {
   Route.resource("tweets", "TweetController")
     .apiOnly()
     .except("update");
+  Route.put("tweets/likes/:id", "TweetController.likes");
 })
   .middleware("auth")
   .middleware("intercept");
